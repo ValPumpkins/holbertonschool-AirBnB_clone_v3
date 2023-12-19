@@ -80,7 +80,7 @@ class DBStorage:
         if key in self.all(cls):
             return self.all(cls)[key]
         return None
-    
+
     def count(self, cls=None):
         if cls is None:
             return len(self.all())
