@@ -250,5 +250,6 @@ class HBNBCommand(cmd.Cmd):
     def default(self, line):
         print(f"*** Unknown syntax: {line}")
 
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
