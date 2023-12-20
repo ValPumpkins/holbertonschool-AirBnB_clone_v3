@@ -2,15 +2,16 @@
 """ States API routes """
 
 from api.v1.views import app_views
-from flask import jsonify
 from flask import abort
+from flask import jsonify
 from flask import request
 from models import storage
 from models.state import State
 
 
 # GET all states
-# ==============================
+# ============================================================================
+
 @app_views.route("/states", methods=["GET"], strict_slashes=False)
 def get_all_states():
     """ Retrieves all states """
@@ -22,7 +23,8 @@ def get_all_states():
 
 
 # GET one state (id)
-# ==============================
+# ============================================================================
+
 @app_views.route("/states/<state_id>", methods=["GET"], strict_slashes=False)
 def get_one_state(state_id):
     """ Retrieves a state by its id """
@@ -34,7 +36,8 @@ def get_one_state(state_id):
 
 
 # DELETE one state (id)
-# ==============================
+# ============================================================================
+
 @app_views.route("/states/<state_id>", methods=["DELETE"],
                  strict_slashes=False)
 def delete_state(state_id):
@@ -50,7 +53,8 @@ def delete_state(state_id):
 
 
 # POST (create a state)
-# ==============================
+# ============================================================================
+
 @app_views.route("/states", methods=["POST"], strict_slashes=False)
 def post_state():
     """ Creates a state """
@@ -68,7 +72,8 @@ def post_state():
 
 
 # PUT (update a state)
-# ==============================
+# ============================================================================
+
 @app_views.route("/states/<state_id>", methods=["PUT"], strict_slashes=False)
 def put_state(state_id):
     """ Updates a state by its id """

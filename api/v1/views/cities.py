@@ -2,8 +2,8 @@
 """ Cities API routes """
 
 from api.v1.views import app_views
-from flask import jsonify
 from flask import abort
+from flask import jsonify
 from flask import request
 from models import storage
 from models.state import City
@@ -11,7 +11,8 @@ from models.state import State
 
 
 # GET all cities by state ID
-# ==============================
+# ============================================================================
+
 @app_views.route("/states/<state_id>/cities", methods=["GET"],
                  strict_slashes=False)
 def get_all_cities(state_id):
@@ -25,7 +26,8 @@ def get_all_cities(state_id):
 
 
 # GET one city (id)
-# ==============================
+# ============================================================================
+
 @app_views.route("cities/<city_id>", methods=["GET"], strict_slashes=False)
 def get_one_city(city_id):
     """ Retrieves a city by its id """
@@ -37,7 +39,8 @@ def get_one_city(city_id):
 
 
 # DELETE one city (id)
-# ==============================
+# ============================================================================
+
 @app_views.route("cities/<city_id>", methods=["DELETE"], strict_slashes=False)
 def delete_city(city_id):
     """ Deletes a city by its id """
@@ -52,7 +55,8 @@ def delete_city(city_id):
 
 
 # POST (create a city)
-# =============================
+# ============================================================================
+
 @app_views.route("states/<state_id>/cities", methods=["POST"],
                  strict_slashes=False)
 def post_city(state_id):
@@ -78,7 +82,8 @@ def post_city(state_id):
 
 
 # PUT (update a city by its id)
-# =================================
+# ============================================================================
+
 @app_views.route("cities/<city_id>", methods=["PUT"], strict_slashes=False)
 def put_city(city_id):
     """ Updates a city by its id """
