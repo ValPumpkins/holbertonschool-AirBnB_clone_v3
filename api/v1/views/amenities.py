@@ -17,8 +17,7 @@ def get_all_amenities():
     """ Retrieves all amenities """
     amenities = storage.all(Amenity).values()
 
-    for amenity in amenities:
-        list_amenities = amenity.to_dict()
+    list_amenities = [amenity.to_dict() for amenity in amenities]
 
     return jsonify(list_amenities)
 
@@ -26,14 +25,14 @@ def get_all_amenities():
 # GET one amenity (id)
 # ============================================================================
 
-@app_views.route("amenities/<amenity_id>", methods=["GET"],
+@app_views.route("/amenities/<amenity_id>", methods=["GET"],
                  strict_slashes=False)
 def get_one_amenity(amenity_id):
     """ Retrieves an amenity by its id """
     amenity = storage.get(Amenity, amenity_id)
-
     if amenity is None:
         abort(404)
+
     return jsonify(amenity.to_dict())
 
 
