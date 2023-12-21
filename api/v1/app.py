@@ -14,6 +14,7 @@ app.register_blueprint(app_views)
 
 cors = CORS(app, ressources={r"/*": {"origins": "0.0.0.0"}})
 
+
 @app.teardown_appcontext
 def close_session(self):
     """ Close the session """
