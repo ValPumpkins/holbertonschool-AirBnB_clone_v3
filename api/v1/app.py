@@ -4,6 +4,7 @@
 from api.v1.views import app_views
 from flask import Flask
 from flask import jsonify
+from flask_cors import CORS
 from models import storage
 from os import getenv
 
@@ -11,6 +12,7 @@ from os import getenv
 app = Flask(__name__)
 app.register_blueprint(app_views)
 
+cors = CORS(app, ressources={r"/*": {"origins": "0.0.0.0"}})
 
 @app.teardown_appcontext
 def close_session(self):
